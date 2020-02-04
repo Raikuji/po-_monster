@@ -4,7 +4,7 @@ let money;
 let awake;
 
 export let get = function get() {
-    return [name, life, money, awake];
+    return JSON.stringify([name, life, money, awake]);
 }
 
 export let init = function init(n, l, m, a) {
