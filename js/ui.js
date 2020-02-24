@@ -1,6 +1,6 @@
 export function log(message) {
-    document.querySelector("#actionbox").insertBefore(document.createElement("p"), document.querySelector("#actionbox"));
-    document.querySelector("#actionbox").firstChild.innerHTML = message;
+    let node = document.querySelector("#actionbox").insertBefore(document.createElement("p"), document.querySelector("#actionbox").firstChild);
+    node.innerHTML = message;
 }
 
 export function displayStatus(monstre) {
