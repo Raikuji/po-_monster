@@ -65,6 +65,7 @@ export function eat() {
     if (life >= 0 && awake && money >= 3) {
         money -= 3;
         life += 2;
+        log("Il a bien mangé !")
     } else {
         log("Le monstre dort ou mort ou pauvre");
     }
