@@ -30,4 +30,9 @@ export function start() {
         ac.eat();
         ui.displayStatus(ac.get())
     });
+    let sleep = document.querySelector("#b4");
+    sleep.addEventListener('click', (event) => {
+        ac.sleep();
+        ui.displayStatus(ac.get())
+    });
 }
