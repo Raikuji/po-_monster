@@ -5,7 +5,7 @@ export function log(message) {
 
 export function displayStatus(monstre) {
 
-    document.querySelector(".life").innerHTML = "life :" + monstre[1];
+    document.querySelector(".life").innerHTML = "life:" + monstre[1];
     document.querySelector(".money").innerHTML = "money:" + monstre[2];
     if (monstre[3]) {
         document.querySelector(".sleep").innerHTML = "awake"
