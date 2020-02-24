@@ -70,3 +70,16 @@ export function eat() {
         log("Le monstre dort ou mort ou pauvre");
     }
 }
+
+export function sleep() {
+    if (life >= 0 && awake) {
+        awake = false;
+        log("Il s'endort... zzzz")
+        setTimeout(function() { 
+            awake = true;
+            life += 1; 
+            log("Il vient de réveiller et gagne 1 PV")}, 10000);
+    } else {
+        log("Il est mort ou déjà endromi");
+    }
+}
