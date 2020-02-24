@@ -9,6 +9,20 @@ export function start() {
     a.addEventListener("click", (event) => {
         alert(ac.get());
     });
-
+    let run = document.querySelector("#b2");
+    run.addEventListener('click', (event) => {
+        ac.run();
+    });
+    let fight = document.querySelector("#b3");
+    fight.addEventListener('click', (event) => {
+        ac.fight();
+    });
+    let work = document.querySelector("#b7");
+    work.addEventListener('click', (event) => {
+        ac.work();
+    });
+    let eat = document.querySelector("#b5");
+    eat.addEventListener('click', (event) => {
+        ac.eat();
+    });
 }
-
