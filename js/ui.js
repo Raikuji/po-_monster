@@ -12,4 +12,18 @@ export function displayStatus(monstre) {
     } else {
         document.querySelector(".sleep").innerHTML = "sleep"
     }
+
+    let box = document.querySelector('#monster');
+
+    if (monstre[1] >= 15) {
+        box.style.backgroundColor = 'green';
+    } else if (monstre[1] < 15 && monstre[1] >= 10) {
+        box.style.backgroundColor = 'blue';
+    } else if (monstre[1] < 10 && monstre[1] >= 5) {
+        box.style.backgroundColor = 'orange';
+    } else if (monstre[1] < 5) {
+        box.style.backgroundColor = 'red';
+    }
+
+    box.style.border = monstre[2]/10 + 'px solid';
 }

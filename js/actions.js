@@ -17,17 +17,31 @@ export let init = function init(n, l, m, a) {
 }
 
 function isAlive() {
-    if (life <= 0) {
+    if (life == 0) {
         return false;
     } else {
         return true;
     }
 }
 
+export function kill() {
+    if (life != 0) {
+        life = 0;
+        log("Le monstre a été tué");
+    } 
+}
+
+export function newlife() {
+    if (life == 0) {
+        life = 20;
+        log("Le monstre a été réssucité")
+    }
+}
+
 export function run() {
-    if (life >= 0 && awake) {
+    if (life > 0 && awake) {
         life -= 1;
-        if (isAlive)
+        if (life != 0)
             log("Il a couru et perdu 1 PV");
         else
             log("Il a couru mais en est mort, rip");
@@ -37,22 +51,22 @@ export function run() {
 }
 
 export function fight() {
-    if (life >= 0 && awake) {
+    if (life >= 3 && awake) {
         life -= 3;
-        if (isAlive) 
-            log("Il a combattu");
-        else 
-            log("Il est mort en combattant")
+        log("il a combattu et perdu 3PV")
+    } else if (life > 0 && life < 3 && awake) {
+        life = 0;
+        log("le monstre est mort en combattant");
     } else {
         log("Le monstre dort ou est mort");
     }
 }
 
 export function work() {
-    if (life >= 0 && awake) {
+    if (life > 0 && awake) {
         life -= 1;
         money += 2;
-        if (isAlive)
+        if (life != 0)
             log("Il a bien travaillé");
         else 
             log("Mort au travail, pauvre vie");
@@ -82,4 +96,32 @@ export function sleep() {
     } else {
         log("Il est mort ou déjà endromi");
     }
+}
+
+export function actionsContinues() {
+    let interval = setInterval(function() {
+        if (life <=0) {
+            clearInterval(interval);
+        } else {
+            life--;
+            log("Il a perdu 1PV");
+            switch (Math.round(Math.random() * 5)) {
+                case 1:
+                    run();
+                    break;
+                case 2:
+                    work();
+                    break;
+                case 3:
+                    eat();
+                    break;
+                case 4:
+                    fight();
+                    break;
+                case 5:
+                    sleep();
+                    break;
+            }
+        }
+    }, 12000);
 }
